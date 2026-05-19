@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  // Switched from sqlite → postgresql for hosting on Vercel + Neon.
+  // For local dev, point DATABASE_URL at a Neon branch or a local Postgres.
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Salon {
+  id                Int       @id @default(autoincrement())
+  name              String
+  address           String
+  city              String    @default("Charlotte")
+  state             String    @default("NC")
+  zip               String?
+  lat               Float
+  lng               Float
+  phone             String?
+  ownerName         String?
+  isVietnameseOwned Boolean   @default(false)
+  status            String    @default("cold") // cold | contacted | in_conversation | onboarded | declined
+  lastContacted     DateTime?
+  notes             String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}
+
+model Agent {
+  id           Int       @id @default(autoincrement())
+  name         String
+  description  String
+  systemPrompt String?
+  status       String    @default("not_deployed") // not_deployed | active | paused
+  lastRun      DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}

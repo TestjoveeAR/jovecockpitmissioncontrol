@@ -5,7 +5,7 @@ import "./globals.css";
 import { Providers } from "@/components/Providers";
 
 export const metadata: Metadata = {
-  title: "Jovée Cockpit",
+  title: "Jovée Mission Control",
   description: "Master control panel for Jovée Technologies.",
 };
 

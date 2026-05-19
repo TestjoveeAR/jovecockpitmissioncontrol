@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -10,7 +11,6 @@ import {
   MapPin,
   Bot,
   Settings,
-  Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -33,12 +33,19 @@ export function Sidebar() {
   return (
     <aside className="hidden md:flex md:w-60 lg:w-64 shrink-0 flex-col border-r border-border/60 glass">
       <div className="flex h-16 items-center gap-2.5 px-5">
-        <div className="relative h-8 w-8 rounded-xl bg-gradient-to-br from-primary/30 to-primary/5 grid place-items-center ring-1 ring-primary/30">
-          <Sparkles className="h-4 w-4 text-primary" />
+        <div className="relative h-9 w-9 shrink-0">
+          <Image
+            src="/jovee-logo.png"
+            alt="Jovée"
+            fill
+            sizes="36px"
+            priority
+            className="object-contain"
+          />
         </div>
         <div className="leading-tight">
           <div className="font-display font-semibold tracking-tighter text-[15px]">Jovée</div>
-          <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground/70">Cockpit</div>
+          <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground/70">Mission Control</div>
         </div>
       </div>
 

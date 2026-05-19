@@ -1,8 +1,9 @@
 "use client";
 
 import { Suspense, useState } from "react";
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Sparkles, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -49,7 +50,7 @@ function LoginForm() {
       {error && <p className="text-xs text-destructive">{error}</p>}
       <Button type="submit" disabled={busy || !password} className="w-full">
         {busy && <Loader2 className="h-4 w-4 animate-spin" />}
-        Enter cockpit
+        Enter mission control
       </Button>
     </form>
   );
@@ -60,13 +61,20 @@ export default function LoginPage() {
     <div className="min-h-[100dvh] grid place-items-center px-6 py-12">
       <div className="w-full max-w-sm fade-up">
         <div className="flex items-center gap-2.5 mb-8">
-          <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-primary/30 to-primary/5 grid place-items-center ring-1 ring-primary/30">
-            <Sparkles className="h-4 w-4 text-primary" />
+          <div className="relative h-10 w-10 shrink-0">
+            <Image
+              src="/jovee-logo.png"
+              alt="Jovée"
+              fill
+              sizes="40px"
+              priority
+              className="object-contain"
+            />
           </div>
           <div className="leading-tight">
             <div className="font-display font-semibold tracking-tighter text-base">Jovée</div>
             <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground/70">
-              Cockpit
+              Mission Control
             </div>
           </div>
         </div>
@@ -75,7 +83,7 @@ export default function LoginPage() {
           Team password
         </h1>
         <p className="text-sm text-muted-foreground mb-8 leading-relaxed">
-          Ask Bobby for the shared cockpit password — it is stored only as a server-side
+          Ask Bobby for the shared mission control password — it is stored only as a server-side
           environment variable.
         </p>
 

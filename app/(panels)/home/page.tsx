@@ -57,7 +57,7 @@ export default function HomePage() {
           <div className="space-y-2">
             <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-muted-foreground/80">
               <span className="h-1.5 w-1.5 rounded-full bg-primary status-dot pulse text-primary" />
-              Cockpit · Live
+              Mission Control · Live
             </div>
             <h1 className="font-display text-4xl md:text-5xl font-semibold tracking-tightest leading-[1.02]">
               Jovée Assistant

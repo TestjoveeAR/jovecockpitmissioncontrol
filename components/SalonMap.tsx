@@ -48,12 +48,14 @@ export interface Salon {
   notes: string | null;
 }
 
+// Jovée-branded status palette — teal for success-y states, coral for warmth,
+// muted neutral for cold leads. Pulled from the Link/AR brand palette.
 const STATUS_COLORS: Record<string, string> = {
-  onboarded: "#10b981",
-  in_conversation: "#eab308",
-  contacted: "#f97316",
-  cold: "#6b7280",
-  declined: "#ef4444",
+  onboarded: "#3CDBCA",      // brand mint-teal (success — partner signed)
+  in_conversation: "#FF9D8C", // brand coral (warm, active)
+  contacted: "#FFCBC2",      // brand blush (touched, awaiting reply)
+  cold: "#7E8B95",           // cool slate (untouched)
+  declined: "#8C3B36",       // brand burgundy (closed-lost)
 };
 
 const STATUS_LABELS: Record<string, string> = {

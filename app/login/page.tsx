@@ -58,8 +58,11 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <div className="min-h-[100dvh] grid place-items-center px-6 py-12">
-      <div className="w-full max-w-sm fade-up">
+    <div className="relative min-h-[100dvh] grid place-items-center px-6 py-12 overflow-hidden">
+      {/* Jovée signature corner blobs — mint top-right, coral bottom-left */}
+      <div className="jovee-blob-teal -top-32 -right-32" aria-hidden />
+      <div className="jovee-blob-rose -bottom-32 -left-32" aria-hidden />
+      <div className="relative w-full max-w-sm fade-up z-10">
         <div className="flex items-center gap-2.5 mb-8">
           <div className="relative h-10 w-10 shrink-0">
             <Image

@@ -50,9 +50,11 @@ export default function HomePage() {
   const onboarded = salons.filter((s) => s.status === "onboarded").length;
 
   return (
-    <div className="px-6 md:px-10 py-8 md:py-10 space-y-10 max-w-7xl mx-auto">
+    <div className="relative px-6 md:px-10 py-8 md:py-10 space-y-10 max-w-7xl mx-auto">
+      {/* Jovée signature blob — soft mint glow behind the hero */}
+      <div className="jovee-blob-teal -top-24 -right-32 opacity-80" aria-hidden />
       {/* Hero */}
-      <section className="fade-up">
+      <section className="relative fade-up z-10">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div className="space-y-2">
             <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-muted-foreground/80">

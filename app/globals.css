@@ -4,50 +4,50 @@
 
 @layer base {
   :root {
-    /* Light theme — warm bone, refined teal */
-    --background: 48 22% 96%;
-    --foreground: 222 25% 12%;
+    /* Light theme — Jovée bone + vivid teal (pulled from brand PDF + Link splash) */
+    --background: 36 28% 96%;
+    --foreground: 196 60% 8%;
     --card: 0 0% 100%;
-    --card-foreground: 222 25% 12%;
+    --card-foreground: 196 60% 8%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222 25% 12%;
-    --primary: 178 50% 32%;
+    --popover-foreground: 196 60% 8%;
+    --primary: 180 60% 30%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 9 60% 91%;
-    --secondary-foreground: 222 25% 12%;
-    --muted: 48 12% 91%;
-    --muted-foreground: 220 8% 42%;
-    --accent: 9 60% 91%;
-    --accent-foreground: 222 25% 12%;
-    --destructive: 0 60% 50%;
+    --secondary: 11 100% 92%;
+    --secondary-foreground: 196 60% 8%;
+    --muted: 36 18% 91%;
+    --muted-foreground: 200 12% 38%;
+    --accent: 11 90% 90%;
+    --accent-foreground: 3 44% 28%;
+    --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
-    --border: 220 13% 88%;
-    --input: 220 13% 88%;
-    --ring: 178 50% 32%;
-    --radius: 0.75rem;
+    --border: 200 14% 86%;
+    --input: 200 14% 86%;
+    --ring: 174 67% 48%;
+    --radius: 1rem;
   }
 
   .dark {
-    /* Dark theme — Zinc base, lifted surfaces */
-    --background: 240 6% 7%;
-    --foreground: 0 0% 96%;
-    --card: 240 5% 12%;
-    --card-foreground: 0 0% 96%;
-    --popover: 240 5% 12%;
-    --popover-foreground: 0 0% 96%;
-    --primary: 178 60% 50%;
-    --primary-foreground: 240 6% 7%;
-    --secondary: 240 5% 15%;
-    --secondary-foreground: 0 0% 96%;
-    --muted: 240 5% 15%;
-    --muted-foreground: 240 5% 64%;
-    --accent: 9 50% 78%;
-    --accent-foreground: 240 6% 7%;
-    --destructive: 0 65% 58%;
+    /* Dark theme — deep teal-ink canvas + vivid mint primary (Jovée splash) */
+    --background: 200 22% 7%;
+    --foreground: 36 28% 96%;
+    --card: 200 18% 11%;
+    --card-foreground: 36 28% 96%;
+    --popover: 200 18% 11%;
+    --popover-foreground: 36 28% 96%;
+    --primary: 174 67% 55%;
+    --primary-foreground: 196 60% 8%;
+    --secondary: 200 14% 16%;
+    --secondary-foreground: 36 28% 96%;
+    --muted: 200 14% 16%;
+    --muted-foreground: 200 10% 62%;
+    --accent: 11 80% 80%;
+    --accent-foreground: 196 60% 8%;
+    --destructive: 0 70% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 240 5% 22%;
-    --input: 240 5% 22%;
-    --ring: 178 60% 50%;
+    --border: 200 14% 22%;
+    --input: 200 14% 22%;
+    --ring: 174 67% 55%;
   }
 }
 
@@ -68,18 +68,48 @@
     @apply font-display tracking-tighter;
   }
 
-  /* Subtle mesh gradient on the dark canvas — never pure black */
+  /* Jovée canvas — signature corner blobs (mint top-right, coral bottom-left) */
   body.dark-canvas,
   .dark body {
     background-color: hsl(var(--background));
     background-image:
-      radial-gradient(ellipse 80% 50% at 70% -10%, hsl(178 60% 50% / 0.08), transparent 60%),
-      radial-gradient(ellipse 60% 40% at 0% 100%, hsl(9 50% 78% / 0.05), transparent 60%);
+      radial-gradient(ellipse 70% 45% at 88% -8%, hsl(174 67% 55% / 0.14), transparent 62%),
+      radial-gradient(ellipse 55% 38% at 5% 105%, hsl(11 80% 80% / 0.10), transparent 60%);
+    background-attachment: fixed;
+  }
+  body:not(.dark) {
+    background-color: hsl(var(--background));
+    background-image:
+      radial-gradient(ellipse 65% 42% at 92% -10%, hsl(174 67% 55% / 0.18), transparent 60%),
+      radial-gradient(ellipse 55% 38% at 0% 110%, hsl(11 90% 80% / 0.22), transparent 60%);
     background-attachment: fixed;
   }
 }
 
 @layer components {
+  /* Jovée signature corner blobs — drop into any `relative` container for
+   * the airy brand feel. The login + home hero use these. */
+  .jovee-blob-teal {
+    position: absolute;
+    pointer-events: none;
+    width: 32rem;
+    height: 32rem;
+    border-radius: 9999px;
+    background: radial-gradient(circle, hsl(174 67% 55% / 0.28), transparent 62%);
+    filter: blur(48px);
+    z-index: 0;
+  }
+  .jovee-blob-rose {
+    position: absolute;
+    pointer-events: none;
+    width: 28rem;
+    height: 28rem;
+    border-radius: 9999px;
+    background: radial-gradient(circle, hsl(11 90% 80% / 0.32), transparent 62%);
+    filter: blur(56px);
+    z-index: 0;
+  }
+
   /* Glass surface used on the sidebar + top bar */
   .glass {
     background-color: hsl(var(--card) / 0.55);

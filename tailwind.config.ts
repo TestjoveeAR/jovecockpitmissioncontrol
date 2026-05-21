@@ -15,13 +15,17 @@ const config: Config = {
     },
     extend: {
       colors: {
-        // Jovée brand
+        // Jovée brand — pulled from logo + Link splash + brand PDF
         brand: {
-          teal: "#1a6b6b",
-          blush: "#f5d5d0",
-          navy: "#0d2840",
-          bone: "#f5f5f0",
-          charcoal: "#1a1a1a",
+          teal: "#3CDBCA",       // vivid mint-teal (Link splash blob, primary brand)
+          tealDeep: "#1A6B6B",   // deep teal (logo inner, light-mode contrast)
+          tealInk: "#0B3B3B",    // deepest teal (text on light surfaces)
+          blush: "#FFCBC2",      // warm coral blush (Link splash lower blob)
+          rose: "#FF9D8C",       // saturated coral (status pills, accents)
+          roseDeep: "#8C3B36",   // burgundy CTA (Link primary button)
+          bone: "#F5F1EA",       // warm bone (light-mode background)
+          navy: "#0B1220",       // deep navy (alt dark surface)
+          charcoal: "#0F1115",   // pure dark canvas
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -66,8 +70,8 @@ const config: Config = {
         "4xl": "2rem",
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
-        display: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
+        sans: ["var(--font-jakarta)", "system-ui", "sans-serif"],
+        display: ["var(--font-jakarta)", "system-ui", "sans-serif"],
         mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
       },
       letterSpacing: {
